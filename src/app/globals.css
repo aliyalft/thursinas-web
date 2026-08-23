@@ -1,26 +1,498 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-display:
+  "Cormorant Garamond",
+  Georgia,
+  serif;
+
+  --font-sans:
+  "Jost",
+  ui-sans-serif,
+  system-ui,
+  sans-serif;
+
+  --font-script:
+  "Parisienne",
+  cursive;
+
+
+  --color-navy:var(--navy);
+  --color-ivory:var(--ivory);
+  --color-aqua:var(--aqua);
+  --color-mint:var(--mint);
+  --color-gold:var(--gold);
+  --color-peach:var(--peach);
+  --color-sky:var(--sky);
+  --color-butter:var(--butter);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+
+
+:root{
+
+
+--background:
+oklch(0.99 0.01 95);
+
+
+--foreground:
+oklch(0.27 0.05 250);
+
+
+
+/* THURSINA COLORS */
+
+
+--navy:
+oklch(0.27 0.05 250);
+
+
+--ivory:
+oklch(0.99 0.01 95);
+
+
+--aqua:
+oklch(0.86 0.08 195);
+
+
+--mint:
+oklch(0.94 0.04 190);
+
+
+--gold:
+oklch(0.80 0.09 78);
+
+
+--peach:
+oklch(0.90 0.06 45);
+
+
+--sky:
+oklch(0.88 0.08 235);
+
+
+--butter:
+oklch(0.95 0.07 100);
+
+
+--rose:
+oklch(0.86 0.05 20);
+
+
+--lavender:
+oklch(0.88 0.05 300);
+
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+
+
+
+*{
+
+box-sizing:border-box;
+
+}
+
+
+
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
+
+
+body{
+
+
+margin:0;
+
+
+background:
+
+radial-gradient(
+circle at 10% 20%,
+color-mix(in oklab,var(--mint) 80%,transparent),
+transparent 40%
+),
+
+
+radial-gradient(
+circle at 90% 10%,
+color-mix(in oklab,var(--sky) 45%,transparent),
+transparent 35%
+),
+
+
+var(--ivory);
+
+
+color:var(--navy);
+
+
+font-family:var(--font-sans);
+
+}
+
+
+
+
+h1,
+h2,
+h3,
+h4{
+
+
+font-family:var(--font-display);
+
+font-weight:400;
+
+letter-spacing:-0.02em;
+
+
+}
+
+
+
+
+
+/* ================= */
+/* CANVAS TEXTURE */
+/* ================= */
+
+
+@utility canvas-texture{
+
+
+position:relative;
+
+overflow:hidden;
+
+
+background-image:
+
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+
+
+}
+
+
+
+
+
+/* ================= */
+/* ORGANIC SHAPES */
+/* ================= */
+
+
+@utility organic-frame{
+
+
+border-radius:
+55% 45% 52% 48% /
+42% 46% 54% 58%;
+
+
+}
+
+
+
+
+@utility organic-soft{
+
+
+border-radius:
+42% 58% 46% 54% /
+52% 44% 56% 48%;
+
+
+}
+
+
+
+
+
+/* ================= */
+/* WATERCOLOR */
+/* ================= */
+
+
+@utility watercolor{
+
+
+filter:blur(50px);
+
+
+opacity:.65;
+
+
+border-radius:
+
+50% 60% 45% 55% /
+55% 45% 60% 50%;
+
+
+}
+
+
+
+
+/* ================= */
+/* FLOAT ANIMATION */
+/* ================= */
+
+
+@keyframes floaty{
+
+
+0%,100%{
+
+transform:
+translateY(0)
+rotate(0deg);
+
+}
+
+
+50%{
+
+transform:
+translateY(-18px)
+rotate(3deg);
+
+}
+
+
+}
+
+
+
+@utility animate-floaty{
+
+
+animation:
+floaty 8s ease-in-out infinite;
+
+
+}
+
+
+
+
+
+/* ================= */
+/* BACKGROUND DRIFT */
+/* ================= */
+
+
+@keyframes drift{
+
+
+0%,100%{
+
+transform:
+translate(0,0);
+
+}
+
+
+50%{
+
+transform:
+translate(25px,-30px);
+
+}
+
+
+}
+
+
+
+
+@utility animate-drift{
+
+
+animation:
+drift 10s ease-in-out infinite;
+
+
+}
+
+
+
+
+
+
+
+/* ================= */
+/* BUTTERFLY */
+/* ================= */
+
+
+@keyframes butterfly{
+
+
+0%,100%{
+
+
+transform:
+translateY(0)
+rotate(-8deg);
+
+
+}
+
+
+
+50%{
+
+
+transform:
+translateY(-25px)
+rotate(8deg);
+
+
+}
+
+
+}
+
+
+
+
+
+@utility animate-butterfly{
+
+
+animation:
+butterfly 6s ease-in-out infinite;
+
+
+}
+
+
+
+
+
+
+
+
+/* ================= */
+/* SOFT PULSE */
+/* ================= */
+
+
+@keyframes softpulse{
+
+
+0%,100%{
+
+
+box-shadow:
+0 0 0 0
+color-mix(
+in oklab,
+var(--aqua) 60%,
+transparent
+);
+
+
+}
+
+
+
+70%{
+
+
+box-shadow:
+0 0 0 18px transparent;
+
+
+}
+
+
+}
+
+
+
+
+
+@utility animate-softpulse{
+
+
+animation:
+softpulse 2.8s infinite;
+
+
+}
+
+
+
+
+
+
+/* ================= */
+/* PAINT DOT */
+/* ================= */
+
+
+@utility paint-dot{
+
+
+border-radius:999px;
+
+
+background:
+
+radial-gradient(
+circle,
+color-mix(in oklab,var(--aqua) 80%,white),
+transparent
+);
+
+
+filter:blur(.2px);
+
+
+}
+
+
+
+
+
+/* ================= */
+/* REDUCED MOTION */
+/* ================= */
+
+
+@media(prefers-reduced-motion:reduce){
+
+
+*,
+*::before,
+*::after{
+
+
+animation-duration:.01ms!important;
+
+animation-iteration-count:1!important;
+
+
+}
+
+
 }
