@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import {
   Cormorant_Garamond,
   Poppins
@@ -7,9 +8,13 @@ import {
 import "./globals.css";
 
 
+
+
+
 const poppins = Poppins({
 
   subsets:["latin"],
+
   weight:[
     "300",
     "400",
@@ -20,6 +25,9 @@ const poppins = Poppins({
   variable:"--font-sans"
 
 });
+
+
+
 
 
 const cormorant = Cormorant_Garamond({
@@ -39,14 +47,130 @@ const cormorant = Cormorant_Garamond({
 
 
 
+
+
+
+
+
+
 export const metadata: Metadata = {
 
-  title:"Thursina's | Fashion Art Handmade",
+
+  metadataBase: new URL(
+    "https://thursina.shop"
+  ),
+
+
+
+  title: {
+
+    default:
+      "Thursina's | Fashion Art Handmade",
+
+    template:
+      "%s | Thursina's Fashion Art"
+
+  },
+
+
 
   description:
-  "Fashion handmade dengan sentuhan lukisan tangan."
+    "Thursina's menghadirkan fashion handmade dengan sentuhan seni, lukisan tangan, dan karya custom yang memiliki cerita unik.",
+
+
+
+  keywords:[
+
+    "Thursina's",
+
+    "fashion art",
+
+    "handmade fashion",
+
+    "fashion handmade Indonesia",
+
+    "custom fashion",
+
+    "lukis kain",
+
+    "seni fashion"
+
+  ],
+
+
+
+  authors:[
+
+    {
+      name:
+      "Thursina's Fashion Art"
+    }
+
+  ],
+
+
+
+  creator:
+    "Thursina's Fashion Art",
+
+
+
+
+  openGraph:{
+
+
+    title:
+      "Thursina's | Fashion Art Handmade",
+
+
+
+    description:
+      "Wearable stories, since 2017. Karya fashion handmade dengan sentuhan seni.",
+
+
+
+    url:
+      "https://thursina.shop",
+
+
+
+    siteName:
+      "Thursina's Fashion Art",
+
+
+
+    locale:
+      "id_ID",
+
+
+
+    type:
+      "website",
+
+
+  },
+
+
+
+  robots:{
+
+
+    index:true,
+
+
+    follow:true,
+
+
+  },
+
 
 };
+
+
+
+
+
+
 
 
 
@@ -61,9 +185,11 @@ children:React.ReactNode;
 }>) {
 
 
+
 return (
 
 <html lang="id">
+
 
 <body
 
@@ -74,7 +200,9 @@ ${cormorant.variable}
 
 >
 
+
 {children}
+
 
 </body>
 
