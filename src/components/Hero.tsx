@@ -264,8 +264,8 @@ alt=""
 className="
 absolute
 pointer-events-none
-right-[100px]
-top-[130px]
+right-[70px]
+top-[120px]
 z-10
 w-12
 opacity-85
@@ -690,8 +690,6 @@ border-cyan-300/40
 
 {/* MOBILE BUTTON */}
 
-
-
 <div
 
 className="
@@ -700,9 +698,10 @@ z-40
 order-3
 mt-8
 flex
-justify-center
+w-full
+flex-col
+items-center
 gap-3
-scale-90
 lg:hidden
 "
 
@@ -716,14 +715,20 @@ href="#galeri"
 className="
 relative
 z-50
+flex
+h-12
+w-[220px]
+items-center
+justify-center
 rounded-full
 bg-[#20C4C7]
-px-8
-py-4
 text-sm
 font-medium
 text-white
 shadow-lg
+shadow-cyan-500/20
+transition
+hover:-translate-y-1
 "
 
 >
@@ -735,6 +740,7 @@ Lihat Koleksi
 
 
 
+
 <a
 
 href="#kontak"
@@ -742,14 +748,19 @@ href="#kontak"
 className="
 relative
 z-50
+flex
+h-12
+w-[220px]
+items-center
+justify-center
 rounded-full
 border
 border-[#102A43]/20
-px-8
-py-4
 text-sm
 font-medium
 text-[#102A43]
+transition
+hover:border-cyan-500
 "
 
 >
@@ -757,6 +768,8 @@ text-[#102A43]
 Konsultasi Custom
 
 </a>
+
+
 
 
 

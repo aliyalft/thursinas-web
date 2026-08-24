@@ -6,12 +6,15 @@ import { motion } from "framer-motion";
 import {
   Clock,
   MapPin,
-  Phone
+  Phone,
+  ArrowUpRight
 } from "lucide-react";
 
 import {
   FaInstagram
 } from "react-icons/fa";
+
+
 
 
 
@@ -53,6 +56,9 @@ isi:"10.00 - 16.00 WIB"
 
 
 
+
+
+
 export default function Kontak(){
 
 
@@ -75,7 +81,8 @@ bg-[#FFF8EF]
 >
 
 
-{/* WATER COLOR DECOR */}
+
+{/* BACKGROUND */}
 
 
 
@@ -136,6 +143,8 @@ blur-[100px]
 
 
 
+
+
 <div
 
 className="
@@ -146,6 +155,7 @@ text-center
 "
 
 >
+
 
 
 
@@ -172,6 +182,7 @@ once:true
 }}
 
 >
+
 
 
 <div
@@ -221,6 +232,7 @@ Kontak
 
 
 
+
 <h2
 
 className="
@@ -247,6 +259,8 @@ Ide Karyamu
 
 
 </h2>
+
+
 
 
 
@@ -322,6 +336,7 @@ sm:grid-cols-2
 
 
 
+
 {
 
 informasi.map((item)=>(
@@ -334,9 +349,11 @@ key={item.label}
 >
 
 
+
 {
 
 item.link ?
+
 
 (
 
@@ -349,6 +366,7 @@ target="_blank"
 rel="noreferrer"
 
 className="
+group
 flex
 items-center
 gap-4
@@ -356,24 +374,36 @@ rounded-2xl
 border
 border-[#E8DDD0]
 bg-white/80
-px-6
+px-4
 py-5
+sm:px-6
 backdrop-blur
 transition
 hover:border-cyan-400
+hover:-translate-y-1
 "
 
 >
 
 
-<CardContent item={item}/>
+<CardContent
+
+item={item}
+
+clickable
+
+/>
 
 
 </a>
 
+
 )
 
+
+
 :
+
 
 (
 
@@ -387,20 +417,26 @@ rounded-2xl
 border
 border-[#E8DDD0]
 bg-white/80
-px-6
+px-4
 py-5
+sm:px-6
 backdrop-blur
 "
 
 >
 
 
-<CardContent item={item}/>
+<CardContent
+
+item={item}
+
+/>
 
 
 </div>
 
 )
+
 
 }
 
@@ -417,6 +453,7 @@ backdrop-blur
 
 
 </motion.div>
+
 
 
 
@@ -462,6 +499,7 @@ Konsultasi WhatsApp
 
 
 
+
 </div>
 
 
@@ -478,13 +516,18 @@ Konsultasi WhatsApp
 
 
 
+
+
+
 function CardContent({
 
-item
+item,
+clickable=false
 
 }:{
 
-item:any
+item:any,
+clickable?:boolean
 
 }){
 
@@ -492,9 +535,11 @@ item:any
 const Icon=item.icon;
 
 
+
 return (
 
 <>
+
 
 
 <span
@@ -520,7 +565,10 @@ text-cyan-600
 
 
 
-<div>
+
+
+<div className="min-w-0 flex-1">
+
 
 <p
 
@@ -539,11 +587,27 @@ text-slate-500
 
 
 
+
+
+
 <p
 
-className="
+className={`
 text-navy
-"
+text-sm
+sm:text-base
+leading-relaxed
+
+${
+item.label === "WhatsApp"
+?
+"whitespace-nowrap text-[12px] sm:text-base"
+:
+""
+
+}
+
+`}
 
 >
 
@@ -553,6 +617,36 @@ text-navy
 
 
 </div>
+
+
+
+
+
+
+
+
+{
+
+clickable && (
+
+<ArrowUpRight
+
+className="
+h-5
+w-5
+shrink-0
+text-cyan-500
+transition-transform
+duration-300
+group-hover:-translate-y-1
+group-hover:translate-x-1
+"
+
+/>
+
+)
+
+}
 
 
 
