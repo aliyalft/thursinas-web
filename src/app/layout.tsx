@@ -167,7 +167,7 @@ export const metadata: Metadata = {
       {
 
         url:
-        "/assets/logo-trs-icon.png",
+        "/assets/logo-trs-icon1.png",
 
         width:
         1200,
