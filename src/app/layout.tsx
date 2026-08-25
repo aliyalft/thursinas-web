@@ -115,6 +115,20 @@ export const metadata: Metadata = {
 
 
 
+  icons: {
+
+    icon:
+      "/favicon.ico",
+
+    shortcut:
+      "/favicon.ico",
+
+    apple:
+      "/favicon.ico"
+
+  },
+
+
 
   openGraph:{
 
@@ -147,6 +161,26 @@ export const metadata: Metadata = {
     type:
       "website",
 
+
+    images:[
+
+      {
+
+        url:
+        "/assets/logo-trs-icon.png",
+
+        width:
+        1200,
+
+        height:
+        630,
+
+        alt:
+        "Thursina's Fashion Art"
+
+      }
+
+    ]
 
   },
 
